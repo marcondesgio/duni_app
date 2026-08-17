@@ -35,6 +35,12 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
 
+  # Poppins (fonte principal do DUNI Design System) via Google Fonts.
+  google_fonts: ^6.2.1
+
+  # Animação de loading (progressiveDots) usada em DuniButton/DuniIconButton.
+  loading_animation_widget: ^1.3.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
