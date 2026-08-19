@@ -14,14 +14,14 @@ abstract final class DuniGradients {
   );
 
   static const navy = LinearGradient(
-    begin: Alignment.centerLeft,
-    end: Alignment.centerRight,
-    colors: [DuniColors.purple500, DuniColors.purple300],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [DuniColors.purple500, DuniColors.purple400],
   );
 
   static const avatar = LinearGradient(
-    begin: Alignment.centerLeft,
-    end: Alignment.centerRight,
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
     colors: [DuniColors.purple200, DuniColors.teal200],
   );
 }

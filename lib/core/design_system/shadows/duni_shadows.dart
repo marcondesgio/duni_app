@@ -1,6 +1,5 @@
+import 'package:duni_app/core/design_system/design_system.dart';
 import 'package:flutter/widgets.dart';
-
-import '../colors/duni_colors.dart';
 
 /// Sombras do DUNI Design System.
 ///
@@ -10,16 +9,16 @@ import '../colors/duni_colors.dart';
 abstract final class DuniShadows {
   static final card = [
     BoxShadow(
-      color: DuniColors.purple500.withAlpha(20), // ~8% de opacidade
-      blurRadius: 16,
-      offset: const Offset(0, 4),
+      color: DuniColors.purple100,
+      blurRadius: DuniSpacing.xxs,
+      offset: const Offset(2, 4),
     ),
   ];
 
   static final raised = [
     BoxShadow(
-      color: DuniColors.purple500.withAlpha(31), // ~12% de opacidade
-      blurRadius: 24,
+      color: DuniColors.purple100,
+      blurRadius: DuniSpacing.lg,
       offset: const Offset(0, 8),
     ),
   ];

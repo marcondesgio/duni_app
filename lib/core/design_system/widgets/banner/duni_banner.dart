@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../colors/duni_colors.dart';
-import '../../radius/duni_radius.dart';
-import '../../spacing/duni_spacing.dart';
-import '../../typography/duni_typography.dart';
+import 'package:duni_app/core/design_system/design_system.dart';
 
 enum BannerType { success, warning, error }
 

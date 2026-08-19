@@ -24,6 +24,7 @@ class DuniChatBubble extends StatelessWidget {
     required this.time,
     required this.isMine,
     this.avatarUrl,
+    this.avatarInitials,
     this.message,
     this.imageUrl,
     this.imageDescription,
@@ -39,6 +40,9 @@ class DuniChatBubble extends StatelessWidget {
   final String time;
   final bool isMine;
   final String? avatarUrl;
+
+  /// Iniciais exibidas quando não há [avatarUrl] (fallback do [DuniAvatar]).
+  final String? avatarInitials;
   final String? message;
   final String? imageUrl;
   final String? imageDescription;
@@ -54,7 +58,11 @@ class DuniChatBubble extends StatelessWidget {
           : MainAxisAlignment.start,
       children: [
         if (!isMine) ...[
-          DuniAvatar(imageUrl: avatarUrl, size: DuniAvatarSize.xs),
+          DuniAvatar(
+            imageUrl: avatarUrl,
+            initials: avatarInitials,
+            size: DuniAvatarSize.xs,
+          ),
           const SizedBox(width: DuniSpacing.xs),
         ],
         Flexible(

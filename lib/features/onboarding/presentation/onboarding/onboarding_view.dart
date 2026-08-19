@@ -1,4 +1,5 @@
 import 'package:duni_app/core/design_system/design_system.dart';
+import 'package:duni_app/features/home/shared/shared.dart';
 import 'package:flutter/material.dart';
 
 import 'onboarding_state.dart';
@@ -22,13 +23,7 @@ class _OnboardingViewState extends State<OnboardingView> {
   }
 
   void _handleFinished() {
-    // Placeholder: ainda não existe uma rota Home no app — sinaliza a
-    // conclusão do onboarding até ela existir.
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Onboarding concluído! (Home ainda não implementada)'),
-      ),
-    );
+    Navigator.of(context).pushReplacementNamed(HomeRouter.homePage);
   }
 
   /// Etapas de configuração de perfil (nome/interesses/foto) não usam AppBar
@@ -47,17 +42,15 @@ class _OnboardingViewState extends State<OnboardingView> {
         final step = _viewModel.state.step;
         final showAppBar = !_stepsWithoutAppBar.contains(step);
 
-        // Nas etapas sem AppBar (name/interests/photo) também bloqueamos o
-        // "voltar" nativo (gesto/botão do sistema) — não há afordância de
-        // voltar nessas etapas, então o Navigator também não deve.
         return PopScope(
           canPop: showAppBar,
           child: Scaffold(
             backgroundColor: DuniColors.white,
             appBar: showAppBar
                 ? AppBar(
-                    backgroundColor: DuniColors.white,
+                    scrolledUnderElevation: 0,
                     elevation: 0,
+                    backgroundColor: DuniColors.white,
                     leading: step == OnboardingStep.login
                         ? null
                         : IconButton(

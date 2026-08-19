@@ -17,6 +17,7 @@ export 'badges/duni_badge.dart';
 export 'dividers/duni_divider.dart';
 export 'cards/duni_card.dart';
 export 'banner/duni_banner.dart';
+export 'banner/duni_banner_challenges.dart';
 
 // Componentes DUNI
 export 'chips/duni_interest_chip.dart';
@@ -25,6 +26,7 @@ export 'cards/duni_group_card.dart';
 export 'cards/duni_streak_card.dart';
 export 'challenges/duni_challenge_card.dart';
 export 'chat/duni_chat_bubble.dart';
+export 'chat/duni_chat_composer.dart';
 export 'media/duni_media_message.dart';
 export 'chat/duni_checkin_card.dart';
 export 'ranking/duni_ranking_podium.dart';

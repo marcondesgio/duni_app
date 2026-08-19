@@ -33,26 +33,41 @@ class _OnboardingNameStepState extends State<OnboardingNameStep> {
       children: [
         const DuniOnboardingProgress(currentStep: 1, totalSteps: 3),
         const SizedBox(height: DuniSpacing.md),
-        Text(
-          'Como você quer ser chamado?',
-          style: DuniTypography.heading2.copyWith(color: DuniColors.purple500),
-        ),
-        Text(
-          'É esse nome que os colegas vão ver nos grupos.',
-          style: DuniTypography.bodySmall.copyWith(
-            color: DuniColors.purpleGray100,
+        // Expanded + SingleChildScrollView (em vez de Spacer direto no
+        // Column): quando o teclado abre e some espaço disponível, o
+        // conteúdo aqui dentro rola em vez de causar overflow — só o banner
+        // e o botão abaixo ficam realmente fixos.
+        Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              spacing: DuniSpacing.xs,
+              children: [
+                Text(
+                  'Como você quer ser chamado?',
+                  style: DuniTypography.heading2.copyWith(
+                    color: DuniColors.purple500,
+                  ),
+                ),
+                Text(
+                  'É esse nome que os colegas vão ver nos grupos.',
+                  style: DuniTypography.bodySmall.copyWith(
+                    color: DuniColors.purpleGray100,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: DuniSpacing.sm),
+                  child: DuniTextField(
+                    label: '',
+                    hintText: 'Digite seu nome ou apelido',
+                    controller: _controller,
+                    onChanged: widget.viewModel.updateName,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: DuniSpacing.sm),
-          child: DuniTextField(
-            label: '',
-            hintText: 'Digite seu nome ou apelido',
-            controller: _controller,
-            onChanged: widget.viewModel.updateName,
-          ),
-        ),
-        const Spacer(),
         DuniBanner(
           icon: "💡",
           text: 'Apelidos funcionam melhor. No duni ninguém entra pelo cargo.',
