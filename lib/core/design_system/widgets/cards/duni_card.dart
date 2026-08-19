@@ -1,8 +1,5 @@
+import 'package:duni_app/core/design_system/design_system.dart';
 import 'package:flutter/material.dart';
-
-import '../../radius/duni_radius.dart';
-import '../../shadows/duni_shadows.dart';
-import '../../spacing/duni_spacing.dart';
 
 /// Card base do DUNI Design System — fundação visual (radius, sombra,
 /// fundo branco) reutilizada pelos demais cards (InterestCard, GroupCard,
@@ -14,12 +11,14 @@ class DuniCard extends StatelessWidget {
     this.padding = const EdgeInsets.all(DuniSpacing.md),
     this.onTap,
     this.backgroundColor = Colors.white,
+    this.boxShadow = true,
   });
 
   final Widget child;
   final EdgeInsets padding;
   final VoidCallback? onTap;
   final Color backgroundColor;
+  final bool boxShadow;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,8 @@ class DuniCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(DuniRadius.card),
-        boxShadow: DuniShadows.card,
+        boxShadow: boxShadow ? DuniShadows.card : null,
+        border: !boxShadow ? BoxBorder.all(color: DuniColors.gray100) : null,
       ),
       child: child,
     );

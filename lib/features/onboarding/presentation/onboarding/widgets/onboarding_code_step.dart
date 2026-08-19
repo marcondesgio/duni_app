@@ -24,31 +24,45 @@ class _OnboardingCodeStepState extends State<OnboardingCodeStep> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Digite seu código',
-          style: DuniTypography.heading2.copyWith(color: DuniColors.purple500),
-        ),
-        const SizedBox(height: DuniSpacing.xxs),
-        Text(
-          'Enviamos 6 dígitos para',
-          style: DuniTypography.bodySmall.copyWith(
-            color: DuniColors.purpleGray100,
+        // Expanded + SingleChildScrollView (em vez de Spacer direto no
+        // Column): quando o teclado abre e some espaço disponível, o
+        // conteúdo aqui dentro rola em vez de causar overflow — só o botão
+        // abaixo fica realmente fixo.
+        Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Digite seu código',
+                  style: DuniTypography.heading2.copyWith(
+                    color: DuniColors.purple500,
+                  ),
+                ),
+                const SizedBox(height: DuniSpacing.xxs),
+                Text(
+                  'Enviamos 6 dígitos para',
+                  style: DuniTypography.bodySmall.copyWith(
+                    color: DuniColors.purpleGray100,
+                  ),
+                ),
+                Text(
+                  state.email,
+                  style: DuniTypography.label.copyWith(
+                    color: DuniColors.purple500,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: DuniSpacing.lg),
+                DuniOtpField(
+                  length: 6,
+                  onChanged: widget.viewModel.updateCode,
+                  onCompleted: (_) => widget.viewModel.submitCode(),
+                ),
+              ],
+            ),
           ),
         ),
-        Text(
-          state.email,
-          style: DuniTypography.label.copyWith(
-            color: DuniColors.purple500,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        const SizedBox(height: DuniSpacing.lg),
-        DuniOtpField(
-          length: 6,
-          onChanged: widget.viewModel.updateCode,
-          onCompleted: (_) => widget.viewModel.submitCode(),
-        ),
-        const Spacer(),
         DuniButton(
           label: 'Entrar',
           state: canSubmit ? DuniButtonState.enabled : DuniButtonState.disabled,

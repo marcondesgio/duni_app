@@ -194,7 +194,7 @@ class _DuniDesignSystemShowcaseState extends State<DuniDesignSystemShowcase> {
                 ],
               ),
               const SizedBox(height: DuniSpacing.xl),
-              const DuniAvatar(initials: 'GM'),
+              DuniAvatar(initials: 'GM'),
             ],
           ),
           _Section(
