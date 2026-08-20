@@ -1,13 +1,14 @@
+import 'dart:ui';
+
+import 'package:duni_app/core/design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
-import '../../colors/duni_colors.dart';
-import '../../radius/duni_radius.dart';
-import '../../spacing/duni_spacing.dart';
-import '../../typography/duni_typography.dart';
-import '../buttons/duni_icon_button.dart';
-
-/// Barra de composição de mensagem do chat: anexar mídia, campo de texto em
-/// pílula e enviar (seção 20 da documentação — mensagens de texto/imagem).
+/// Barra de composição de mensagem do chat: anexar mídia, campo de texto e
+/// enviar (seção 20 da documentação — mensagens de texto/imagem).
+///
+/// Visual "flutuante": um único painel em pílula, translúcido e desfocado
+/// (estilo WhatsApp) — pensado para ser posicionado sobre a lista de
+/// mensagens (ver `ChatView`), não como uma barra opaca encostada no fundo.
 class DuniChatComposer extends StatefulWidget {
   const DuniChatComposer({
     super.key,
@@ -42,50 +43,66 @@ class _DuniChatComposerState extends State<DuniChatComposer> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        if (widget.onAttach != null) ...[
-          DuniIconButton(
-            icon: Icons.add,
-            variant: DuniIconButtonVariant.secundary,
-            onPressed: widget.onAttach,
-          ),
-          const SizedBox(width: DuniSpacing.xs),
-        ],
-        Expanded(
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: DuniSpacing.md),
-            decoration: BoxDecoration(
-              color: DuniColors.gray100,
-              borderRadius: BorderRadius.circular(DuniRadius.pill),
-            ),
-            child: TextField(
-              controller: _controller,
-              minLines: 1,
-              maxLines: 4,
-              textCapitalization: TextCapitalization.sentences,
-              style: DuniTypography.body.copyWith(color: DuniColors.purple500),
-              decoration: InputDecoration(
-                hintText: widget.hintText,
-                hintStyle: DuniTypography.body.copyWith(
-                  color: DuniColors.purpleGray50,
-                ),
-                border: InputBorder.none,
-                contentPadding: const EdgeInsets.symmetric(
-                  vertical: DuniSpacing.sm,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(DuniRadius.pill),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: DuniSpacing.xxs),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          spacing: DuniSpacing.xs,
+          children: [
+            if (widget.onAttach != null)
+              Padding(
+                padding: const EdgeInsets.only(bottom: DuniSpacing.xxs),
+                child: DuniIconButton(
+                  icon: Icons.add,
+                  variant: DuniIconButtonVariant.secundary,
+                  onPressed: widget.onAttach,
                 ),
               ),
-              onSubmitted: (_) => _submit(),
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: DuniSpacing.md),
+                decoration: BoxDecoration(
+                  color: DuniColors.white,
+                  borderRadius: BorderRadius.circular(DuniRadius.pill),
+                  border: Border.all(color: DuniColors.gray100, width: 1),
+                ),
+                child: TextField(
+                  controller: _controller,
+                  minLines: 1,
+                  maxLines: 4,
+                  textCapitalization: TextCapitalization.sentences,
+                  style: DuniTypography.body.copyWith(
+                    color: DuniColors.purple500,
+                  ),
+                  decoration: InputDecoration(
+                    hintText: widget.hintText,
+                    hintStyle: DuniTypography.body.copyWith(
+                      color: DuniColors.purpleGray50,
+                    ),
+                    border: InputBorder.none,
+                    isDense: true,
+                    contentPadding: const EdgeInsets.symmetric(
+                      vertical: DuniSpacing.sm,
+                    ),
+                    fillColor: DuniColors.white,
+                    enabledBorder: InputBorder.none,
+                  ),
+                  onSubmitted: (_) => _submit(),
+                ),
+              ),
             ),
-          ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: DuniSpacing.xxs),
+              child: DuniIconButton(
+                icon: Icons.send_rounded,
+                onPressed: _submit,
+              ),
+            ),
+          ],
         ),
-        const SizedBox(width: DuniSpacing.xs),
-        DuniIconButton(
-          icon: Icons.send_rounded,
-          onPressed: _submit,
-        ),
-      ],
+      ),
     );
   }
 }

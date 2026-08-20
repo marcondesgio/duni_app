@@ -9,7 +9,7 @@ import 'package:flutter/widgets.dart';
 abstract final class DuniShadows {
   static final card = [
     BoxShadow(
-      color: DuniColors.purple100,
+      color: DuniColors.gray100,
       blurRadius: DuniSpacing.xxs,
       offset: const Offset(2, 4),
     ),

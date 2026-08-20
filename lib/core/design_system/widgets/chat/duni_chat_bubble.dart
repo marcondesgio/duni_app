@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../colors/duni_colors.dart';
-import '../../radius/duni_radius.dart';
-import '../../spacing/duni_spacing.dart';
-import '../../typography/duni_typography.dart';
-import '../avatars/duni_avatar.dart';
-import '../media/duni_media_message.dart';
+import 'package:duni_app/core/design_system/design_system.dart';
 
 /// Tipo de mensagem de chat (seção 20 da documentação).
 ///
@@ -52,7 +46,7 @@ class DuniChatBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: isMine
           ? MainAxisAlignment.end
           : MainAxisAlignment.start,
@@ -61,7 +55,7 @@ class DuniChatBubble extends StatelessWidget {
           DuniAvatar(
             imageUrl: avatarUrl,
             initials: avatarInitials,
-            size: DuniAvatarSize.xs,
+            size: DuniAvatarSize.small,
           ),
           const SizedBox(width: DuniSpacing.xs),
         ],
@@ -72,19 +66,20 @@ class DuniChatBubble extends StatelessWidget {
                 : CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              if (!isMine)
+              if (!isMine) ...[
                 Padding(
                   padding: const EdgeInsets.only(
                     bottom: 2,
                     left: DuniSpacing.xxs,
                   ),
                   child: Text(
-                    authorName,
+                    '$authorName · $time',
                     style: DuniTypography.caption.copyWith(
-                      color: DuniColors.purple500.withAlpha(160),
+                      color: DuniColors.purpleGray100,
                     ),
                   ),
                 ),
+              ],
               _Bubble(
                 isMine: isMine,
                 tinted: isMine && type == DuniChatMessageType.text,
@@ -103,24 +98,28 @@ class DuniChatBubble extends StatelessWidget {
                         ),
                       ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 2),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    if (reaction != null) ...[
-                      Text(reaction!, style: const TextStyle(fontSize: 12)),
+              if (reaction != null) ...[
+                Container(
+                  margin: const EdgeInsets.only(top: DuniSpacing.xxs),
+                  padding: const EdgeInsets.all(DuniSpacing.xxs),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: DuniColors.gray200),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(DuniRadius.pill),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        reaction!,
+                        style: const TextStyle(fontSize: DuniSpacing.sm),
+                      ),
                       const SizedBox(width: DuniSpacing.xxs),
                     ],
-                    Text(
-                      time,
-                      style: DuniTypography.caption.copyWith(
-                        color: DuniColors.purple500.withAlpha(130),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+              ],
             ],
           ),
         ),
@@ -154,14 +153,16 @@ class _Bubble extends StatelessWidget {
       decoration: BoxDecoration(
         color: tinted ? DuniColors.purple200 : Colors.white,
         borderRadius: BorderRadius.only(
-          topLeft: const Radius.circular(DuniRadius.medium),
-          topRight: const Radius.circular(DuniRadius.medium),
-          bottomLeft: Radius.circular(
-            isMine ? DuniRadius.medium : DuniRadius.small,
+          topLeft: Radius.circular(
+            !isMine ? DuniRadius.tiny : DuniRadius.bubble,
           ),
-          bottomRight: Radius.circular(
-            isMine ? DuniRadius.small : DuniRadius.medium,
+
+          topRight: Radius.circular(
+            isMine ? DuniRadius.tiny : DuniRadius.bubble,
           ),
+
+          bottomLeft: Radius.circular(DuniRadius.bubble),
+          bottomRight: Radius.circular(DuniRadius.bubble),
         ),
         border: tinted ? null : Border.all(color: DuniColors.gray200),
       ),

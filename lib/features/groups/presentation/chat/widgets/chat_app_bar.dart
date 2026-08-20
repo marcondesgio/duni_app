@@ -58,16 +58,13 @@ class ChatAppBar extends StatelessWidget implements PreferredSizeWidget {
                       Text(
                         '${group.participantCount} participantes',
                         style: DuniTypography.caption.copyWith(
-                          color: DuniColors.white.withAlpha(200),
+                          color: DuniColors.white,
                         ),
                       ),
                     ],
                   ),
                 ),
-                Icon(
-                  Icons.chevron_right,
-                  color: DuniColors.white.withAlpha(220),
-                ),
+                Icon(Icons.chevron_right_rounded, color: DuniColors.white),
                 const SizedBox(width: DuniSpacing.xs),
               ],
             ),

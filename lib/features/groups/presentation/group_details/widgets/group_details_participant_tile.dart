@@ -44,12 +44,6 @@ class GroupDetailsParticipantTile extends StatelessWidget {
                     ],
                   ],
                 ),
-                Text(
-                  participant.role,
-                  style: DuniTypography.bodySmall.copyWith(
-                    color: DuniColors.purpleGray100,
-                  ),
-                ),
               ],
             ),
           ),
