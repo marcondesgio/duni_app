@@ -37,14 +37,17 @@ class GroupDetailsHeader extends StatelessWidget {
               ),
               const SizedBox(height: DuniSpacing.xs),
               Container(
-                width: 72,
-                height: 72,
+                width: 66,
+                height: 66,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: DuniColors.white.withAlpha(40),
                   borderRadius: BorderRadius.circular(DuniRadius.large),
                 ),
-                child: Text(group.icon, style: const TextStyle(fontSize: 36)),
+                child: Text(
+                  group.icon,
+                  style: const TextStyle(fontSize: DuniSpacing.xl),
+                ),
               ),
               const SizedBox(height: DuniSpacing.sm),
               Text(
@@ -56,9 +59,9 @@ class GroupDetailsHeader extends StatelessWidget {
               ),
               const SizedBox(height: DuniSpacing.xxs),
               Text(
-                'Grupo da Nexora · ${group.participantCount} participantes',
+                'Nexora · ${group.participantCount} participantes',
                 style: DuniTypography.bodySmall.copyWith(
-                  color: DuniColors.white.withAlpha(200),
+                  color: DuniColors.white,
                 ),
               ),
             ],
@@ -82,12 +85,11 @@ class _UnlinkButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(
           horizontal: DuniSpacing.sm,
-          vertical: DuniSpacing.xxs,
+          vertical: DuniSpacing.xs,
         ),
         decoration: BoxDecoration(
           color: DuniColors.white.withAlpha(40),
           borderRadius: BorderRadius.circular(DuniRadius.pill),
-          border: Border.all(color: DuniColors.white.withAlpha(90)),
         ),
         child: Text(
           'Desvincular',

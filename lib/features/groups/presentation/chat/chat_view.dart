@@ -43,9 +43,12 @@ class _ChatViewState extends State<ChatView> {
           builder: (context, _) {
             final state = _viewModel.state;
 
-            return Column(
+            // Stack (não Column): a lista ocupa a tela inteira e o composer
+            // flutua por cima, no rodapé, com espaço extra no fim da lista
+            // para as últimas mensagens não ficarem escondidas embaixo dele.
+            return Stack(
               children: [
-                Expanded(
+                Positioned.fill(
                   child: state.isLoading
                       ? Center(
                           child: LoadingAnimationWidget.progressiveDots(
@@ -54,7 +57,12 @@ class _ChatViewState extends State<ChatView> {
                           ),
                         )
                       : ListView(
-                          padding: const EdgeInsets.all(DuniSpacing.lg),
+                          padding: const EdgeInsets.fromLTRB(
+                            DuniSpacing.lg,
+                            DuniSpacing.lg,
+                            DuniSpacing.lg,
+                            96,
+                          ),
                           children: [
                             Center(
                               child: Text(
@@ -72,13 +80,10 @@ class _ChatViewState extends State<ChatView> {
                           ],
                         ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(
-                    DuniSpacing.md,
-                    DuniSpacing.xs,
-                    DuniSpacing.md,
-                    DuniSpacing.sm,
-                  ),
+                Positioned(
+                  left: DuniSpacing.md,
+                  right: DuniSpacing.md,
+                  bottom: DuniSpacing.md,
                   child: DuniChatComposer(
                     onSend: _viewModel.sendMessage,
                     onAttach: _viewModel.sendSamplePhoto,

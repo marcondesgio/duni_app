@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../colors/duni_colors.dart';
-import '../../radius/duni_radius.dart';
-import '../../spacing/duni_spacing.dart';
-import '../../typography/duni_typography.dart';
-import '../avatars/duni_avatar.dart';
-import '../cards/duni_card.dart';
+import 'package:duni_app/core/design_system/design_system.dart';
 
 /// Card de check-in — visualmente distinto de uma mensagem comum de chat,
 /// entrando na conversa como um card próprio (seção 22 da documentação).

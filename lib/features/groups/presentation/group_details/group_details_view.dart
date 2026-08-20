@@ -67,23 +67,28 @@ class _GroupDetailsViewState extends State<GroupDetailsView> {
                           onViewAll: _openMedia,
                         ),
                         const SizedBox(height: DuniSpacing.lg),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Participantes',
-                              style: DuniTypography.bodyLarge.copyWith(
-                                color: DuniColors.purple500,
-                                fontWeight: FontWeight.w600,
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            bottom: DuniSpacing.md,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Participantes',
+                                style: DuniTypography.bodyLarge.copyWith(
+                                  color: DuniColors.purple500,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
-                            ),
-                            Text(
-                              '${state.participants.length}',
-                              style: DuniTypography.bodySmall.copyWith(
-                                color: DuniColors.purpleGray100,
+                              Text(
+                                '${state.participants.length}',
+                                style: DuniTypography.bodySmall.copyWith(
+                                  color: DuniColors.purpleGray100,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                         for (final participant in state.participants)
                           GroupDetailsParticipantTile(participant: participant),
