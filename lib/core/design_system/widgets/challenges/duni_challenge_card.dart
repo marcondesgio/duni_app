@@ -1,14 +1,6 @@
+import 'package:duni_app/core/design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
-import '../../colors/duni_colors.dart';
-import '../../radius/duni_radius.dart';
-import '../../spacing/duni_spacing.dart';
-import '../../typography/duni_typography.dart';
-import '../avatars/duni_avatar.dart';
-import '../cards/duni_card.dart';
-import '../chips/duni_interest_chip.dart';
-
-/// Estado visual de um desafio (seção 19 da documentação).
 enum DuniChallengeStatus {
   ongoing,
   upcoming,
@@ -25,14 +17,25 @@ enum DuniChallengeStatus {
     }
   }
 
-  Color get color {
+  Color get colorBackground {
+    switch (this) {
+      case DuniChallengeStatus.ongoing:
+        return DuniColors.teal50;
+      case DuniChallengeStatus.upcoming:
+        return DuniColors.yellow50;
+      case DuniChallengeStatus.ended:
+        return DuniColors.gray100;
+    }
+  }
+
+  Color get colorLabel {
     switch (this) {
       case DuniChallengeStatus.ongoing:
         return DuniColors.teal200;
       case DuniChallengeStatus.upcoming:
-        return DuniColors.yellow300;
+        return DuniColors.warning;
       case DuniChallengeStatus.ended:
-        return DuniColors.purple500;
+        return DuniColors.gray300;
     }
   }
 }
@@ -81,7 +84,7 @@ class DuniChallengeCard extends StatelessWidget {
               top: Radius.circular(DuniRadius.card),
             ),
             child: AspectRatio(
-              aspectRatio: 16 / 9,
+              aspectRatio: 21 / 9,
               child: Image.network(
                 imageUrl,
                 fit: BoxFit.cover,
@@ -95,44 +98,50 @@ class DuniChallengeCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
+              spacing: DuniSpacing.xs,
               children: [
                 Row(
+                  spacing: DuniSpacing.xs,
                   children: [
-                    Expanded(
-                      child: Text(
-                        name,
-                        style: DuniTypography.bodyLarge.copyWith(
-                          color: DuniColors.purple500,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
+                    DuniInterestChip(
+                      emoji: interestEmoji,
+                      label: interestLabel,
                     ),
                     _StatusPill(status: status, daysUntilStart: daysUntilStart),
                   ],
                 ),
-                const SizedBox(height: DuniSpacing.xs),
-                DuniInterestChip(emoji: interestEmoji, label: interestLabel),
-                const SizedBox(height: DuniSpacing.xs),
-                Text(
-                  periodLabel,
-                  style: DuniTypography.bodySmall.copyWith(
-                    color: DuniColors.purple500.withAlpha(160),
-                  ),
-                ),
-                if (checkinInfo != null) ...[
-                  const SizedBox(height: DuniSpacing.xxs),
-                  Text(
-                    checkinInfo!,
-                    style: DuniTypography.caption.copyWith(
-                      color: DuniColors.teal200,
+                Flexible(
+                  child: Text(
+                    name,
+                    style: DuniTypography.bodyLarge.copyWith(
+                      color: DuniColors.purple500,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
-                ],
-                const SizedBox(height: DuniSpacing.sm),
+                ),
                 Row(
+                  spacing: DuniSpacing.xs,
+                  children: [
+                    Text(
+                      periodLabel,
+                      style: DuniTypography.bodySmall.copyWith(
+                        color: DuniColors.purple500.withAlpha(160),
+                      ),
+                    ),
+                    if (checkinInfo != null) ...[
+                      Text(
+                        checkinInfo!,
+                        style: DuniTypography.caption.copyWith(
+                          color: DuniColors.teal200,
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+                Row(
+                  spacing: DuniSpacing.xs,
                   children: [
                     _AvatarStack(urls: participantAvatarUrls),
-                    const SizedBox(width: DuniSpacing.xs),
                     Text(
                       '$participantCount participantes',
                       style: DuniTypography.caption.copyWith(
@@ -160,17 +169,17 @@ class _StatusPill extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(
-        horizontal: DuniSpacing.xs,
-        vertical: 2,
+        horizontal: DuniSpacing.sm,
+        vertical: DuniSpacing.xxs,
       ),
       decoration: BoxDecoration(
-        color: status.color.withAlpha(35),
+        color: status.colorBackground,
         borderRadius: BorderRadius.circular(DuniRadius.pill),
       ),
       child: Text(
         status.label(daysUntilStart: daysUntilStart),
         style: DuniTypography.caption.copyWith(
-          color: status.color,
+          color: status.colorLabel,
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -194,11 +203,12 @@ class _AvatarStack extends StatelessWidget {
       height: DuniAvatarSize.xs.diameter,
       child: Stack(
         children: [
-          for (var i = 0; i < shown.length; i++)
+          for (var i = 0; i < shown.length; i++) ...[
             Positioned(
               left: i * overlap,
               child: DuniAvatar(imageUrl: shown[i], size: DuniAvatarSize.xs),
             ),
+          ],
         ],
       ),
     );

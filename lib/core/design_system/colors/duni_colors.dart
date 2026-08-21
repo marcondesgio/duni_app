@@ -32,7 +32,7 @@ abstract final class DuniColors {
   ///Teal
   static const teal200 = Color(0xFF2AC9B7);
   static const teal100 = Color(0xFFC6EFE8);
-  static const teal50 = Color(0xFFF4FBF9);
+  static const teal50 = Color(0xFFF0FBF9);
 
   ///Yellow
   static const yellow300 = Color(0xFFF59E0B);

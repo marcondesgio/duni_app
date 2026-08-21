@@ -27,8 +27,9 @@ class HomeViewmodal extends ChangeNotifier {
       streakDays: 3,
       challenges: const [
         HomeChallengePreview(
+          id: 'atividade-fisica',
           imageUrl: 'https://picsum.photos/seed/duni-home-challenge-1/600/338',
-          name: 'Desafio 10k passos',
+          name: '5 dias de atividade física',
           interestEmoji: '💪',
           interestLabel: 'Academia',
           periodLabel: '01/09 a 30/09',
@@ -39,8 +40,13 @@ class HomeViewmodal extends ChangeNotifier {
           ],
           participantCount: 24,
           checkinInfo: 'Check-in diário',
+          currentDay: 4,
+          totalDays: 5,
+          myPosition: 3,
+          myCheckins: 4,
         ),
         HomeChallengePreview(
+          id: 'corrida-de-rua',
           imageUrl: 'https://picsum.photos/seed/duni-home-challenge-2/600/338',
           name: 'Corrida de rua',
           interestEmoji: '🏃',
@@ -52,6 +58,10 @@ class HomeViewmodal extends ChangeNotifier {
             'https://picsum.photos/seed/duni-home-avatar-3/200',
           ],
           participantCount: 6,
+          currentDay: 0,
+          totalDays: 10,
+          myPosition: 0,
+          myCheckins: 0,
         ),
       ],
       groups: const [

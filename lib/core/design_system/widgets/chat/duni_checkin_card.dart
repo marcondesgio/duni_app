@@ -1,31 +1,32 @@
-import 'package:flutter/material.dart';
 import 'package:duni_app/core/design_system/design_system.dart';
+import 'package:flutter/material.dart';
 
 /// Card de check-in — visualmente distinto de uma mensagem comum de chat,
 /// entrando na conversa como um card próprio (seção 22 da documentação).
+///
+/// Não inclui avatar: quem usa este componente numa lista de chat deve
+/// posicionar o avatar do autor ao lado, do mesmo jeito que o
+/// [DuniChatBubble] faz para mensagens que não são do usuário atual.
 class DuniCheckinCard extends StatelessWidget {
   const DuniCheckinCard({
     super.key,
     required this.userName,
     required this.photoUrl,
     required this.description,
-    required this.dateTimeLabel,
-    this.avatarUrl,
+    required this.time,
     this.onTap,
   });
 
   final String userName;
   final String photoUrl;
   final String description;
-  final String dateTimeLabel;
-  final String? avatarUrl;
+  final String time;
   final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return DuniCard(
       onTap: onTap,
-      backgroundColor: DuniColors.teal200.withAlpha(20),
       padding: const EdgeInsets.all(DuniSpacing.sm),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,23 +34,19 @@ class DuniCheckinCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              DuniAvatar(imageUrl: avatarUrl, size: DuniAvatarSize.xs),
-              const SizedBox(width: DuniSpacing.xs),
               Expanded(
                 child: Text(
-                  userName,
+                  '$userName fez check-in',
                   style: DuniTypography.label.copyWith(
                     color: DuniColors.purple500,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
-              Icon(Icons.check_circle, size: 16, color: DuniColors.teal200),
-              const SizedBox(width: DuniSpacing.xxs),
               Text(
-                'Check-in',
+                time,
                 style: DuniTypography.caption.copyWith(
-                  color: DuniColors.teal200,
-                  fontWeight: FontWeight.w600,
+                  color: DuniColors.purple500.withAlpha(140),
                 ),
               ),
             ],
@@ -62,21 +59,25 @@ class DuniCheckinCard extends StatelessWidget {
               height: 160,
               width: double.infinity,
               fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) =>
-                  Container(height: 160, color: DuniColors.gray200),
+              errorBuilder: (context, error, stackTrace) => Container(
+                height: 160,
+                width: double.infinity,
+                color: DuniColors.gray200,
+                alignment: Alignment.center,
+                child: Text(
+                  'FOTO DO CHECK-IN',
+                  style: DuniTypography.caption.copyWith(
+                    color: DuniColors.purple500.withAlpha(140),
+                    letterSpacing: 0.5,
+                  ),
+                ),
+              ),
             ),
           ),
           const SizedBox(height: DuniSpacing.xs),
           Text(
             description,
             style: DuniTypography.body.copyWith(color: DuniColors.purple500),
-          ),
-          const SizedBox(height: DuniSpacing.xxs),
-          Text(
-            dateTimeLabel,
-            style: DuniTypography.caption.copyWith(
-              color: DuniColors.purple500.withAlpha(140),
-            ),
           ),
         ],
       ),

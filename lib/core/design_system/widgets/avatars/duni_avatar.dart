@@ -95,11 +95,7 @@ class _Fallback extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (initials == null || initials!.isEmpty) {
-      return Icon(
-        Icons.person,
-        color: DuniColors.purple500.withAlpha(150),
-        size: diameter * 0.55,
-      );
+      return Icon(Icons.person, color: DuniColors.white, size: diameter * 0.55);
     }
     return Center(
       child: Text(

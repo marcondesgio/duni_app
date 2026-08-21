@@ -1,4 +1,6 @@
 import 'package:duni_app/core/design_system/design_system_showcase.dart';
+import 'package:duni_app/features/challenges/presentation/presentation.dart';
+import 'package:duni_app/features/challenges/shared/shared.dart';
 import 'package:duni_app/features/groups/presentation/presentation.dart';
 import 'package:duni_app/features/groups/shared/shared.dart';
 import 'package:duni_app/features/home/presentation/presentation.dart';
@@ -8,9 +10,10 @@ import 'package:duni_app/features/onboarding/shared/shared.dart';
 import 'package:flutter/material.dart';
 
 /// Rota central do app — mapeia os paths declarados nos `*Router` de cada
-/// feature (ex.: [OnboardingRouter], [HomeRouter], [GroupsRouter]) para os
-/// widgets de tela. Os `*Router` de feature guardam só as constantes de
-/// path; quem conhece os widgets é só este arquivo.
+/// feature (ex.: [OnboardingRouter], [HomeRouter], [GroupsRouter],
+/// [ChallengesRouter]) para os widgets de tela. Os `*Router` de feature
+/// guardam só as constantes de path; quem conhece os widgets é só este
+/// arquivo.
 abstract final class AppRouter {
   static const String initialRoute = OnboardingRouter.splashPage;
 
@@ -37,6 +40,18 @@ abstract final class AppRouter {
       case GroupsRouter.mediaPage:
         final group = settings.arguments as GroupRef;
         return MaterialPageRoute(builder: (_) => MediaView(group: group));
+      case ChallengesRouter.newChallengePage:
+        return MaterialPageRoute(builder: (_) => const NewChallengeView());
+      case ChallengesRouter.chatPage:
+        final challenge = settings.arguments as ChallengeRef;
+        return MaterialPageRoute(
+          builder: (_) => ChallengeChatView(challenge: challenge),
+        );
+      case ChallengesRouter.detailPage:
+        final challenge = settings.arguments as ChallengeRef;
+        return MaterialPageRoute(
+          builder: (_) => ChallengeDetailView(challenge: challenge),
+        );
       case designSystemShowcaseRoute:
         return MaterialPageRoute(
           builder: (_) => const DuniDesignSystemShowcase(),

@@ -32,10 +32,10 @@ class DuniChip extends StatelessWidget {
           vertical: DuniSpacing.xxs,
         ),
         decoration: BoxDecoration(
-          color: selected ? DuniColors.purple200.withAlpha(30) : Colors.white,
+          color: selected ? DuniColors.purple500 : Colors.white,
           borderRadius: BorderRadius.circular(DuniRadius.pill),
           border: Border.all(
-            color: selected ? DuniColors.purple200 : DuniColors.gray200,
+            color: selected ? DuniColors.purple500 : DuniColors.gray200,
           ),
         ),
         child: Row(
@@ -48,7 +48,7 @@ class DuniChip extends StatelessWidget {
             Text(
               label,
               style: DuniTypography.label.copyWith(
-                color: selected ? DuniColors.purple200 : DuniColors.purple500,
+                color: selected ? DuniColors.white : DuniColors.purple500,
               ),
             ),
           ],
