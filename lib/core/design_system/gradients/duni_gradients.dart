@@ -24,4 +24,10 @@ abstract final class DuniGradients {
     end: Alignment.bottomRight,
     colors: [DuniColors.purple200, DuniColors.teal200],
   );
+
+  static const ranking = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [DuniColors.yellow200, DuniColors.yellow300],
+  );
 }

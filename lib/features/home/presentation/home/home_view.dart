@@ -1,4 +1,5 @@
 import 'package:duni_app/core/design_system/design_system.dart';
+import 'package:duni_app/features/challenges/shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
@@ -65,6 +66,23 @@ class _HomeViewState extends State<HomeView> {
             );
           },
         ),
+      ),
+      floatingActionButton: ListenableBuilder(
+        listenable: _viewModel,
+        builder: (context, _) {
+          final state = _viewModel.state;
+
+          return (state.selectedTab == HomeTab.challenges)
+              ? DuniButton(
+                  label: 'Criar desafio',
+                  onPressed: () => Navigator.of(
+                    context,
+                  ).pushNamed(ChallengesRouter.newChallengePage),
+                  leadingIcon: Icons.add,
+                  expand: false,
+                )
+              : const SizedBox();
+        },
       ),
     );
   }

@@ -8,9 +8,12 @@ import 'duni_card.dart';
 /// Representa a sequência de participação do usuário (ex.: "🔥 3 dias
 /// seguidos"), sempre na cor amarela/amber do Design System (seção 25).
 class DuniStreakCard extends StatelessWidget {
-  const DuniStreakCard({super.key, required this.days});
+  const DuniStreakCard({super.key, required this.days, this.subtitle});
 
   final int days;
+
+  /// Texto secundário opcional (ex.: "Não perca hoje").
+  final String? subtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +24,25 @@ class DuniStreakCard extends StatelessWidget {
         children: [
           const Text('🔥', style: TextStyle(fontSize: 24)),
           const SizedBox(width: DuniSpacing.xs),
-          Text(
-            '$days ${days == 1 ? 'dia seguido' : 'dias seguidos'}',
-            style: DuniTypography.bodyLarge.copyWith(
-              color: DuniColors.purple500,
-              fontWeight: FontWeight.w600,
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                '$days ${days == 1 ? 'dia seguido' : 'dias seguidos'}',
+                style: DuniTypography.bodyLarge.copyWith(
+                  color: DuniColors.purple500,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              if (subtitle != null)
+                Text(
+                  subtitle!,
+                  style: DuniTypography.bodySmall.copyWith(
+                    color: DuniColors.purpleGray100,
+                  ),
+                ),
+            ],
           ),
         ],
       ),

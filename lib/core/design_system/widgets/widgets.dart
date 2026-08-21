@@ -33,4 +33,5 @@ export 'ranking/duni_ranking_podium.dart';
 export 'ranking/duni_ranking_item.dart';
 export 'media/duni_media_grid.dart';
 export 'media/duni_media_picker.dart';
+export 'media/duni_image_dropzone.dart';
 export 'navigation/duni_onboarding_progress.dart';

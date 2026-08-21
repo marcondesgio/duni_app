@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:duni_app/core/design_system/design_system.dart';
 import 'package:flutter/material.dart';
 

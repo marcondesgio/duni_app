@@ -9,6 +9,7 @@ enum HomeTab { groups, challenges }
 /// a camada de dados da feature (`home/data`, `home/domain`) existir.
 class HomeChallengePreview {
   const HomeChallengePreview({
+    required this.id,
     required this.imageUrl,
     required this.name,
     required this.interestEmoji,
@@ -17,10 +18,15 @@ class HomeChallengePreview {
     required this.status,
     required this.participantAvatarUrls,
     required this.participantCount,
+    required this.currentDay,
+    required this.totalDays,
+    required this.myPosition,
+    required this.myCheckins,
     this.checkinInfo,
     this.daysUntilStart,
   });
 
+  final String id;
   final String imageUrl;
   final String name;
   final String interestEmoji;
@@ -31,6 +37,13 @@ class HomeChallengePreview {
   final int participantCount;
   final String? checkinInfo;
   final int? daysUntilStart;
+
+  /// Usados para montar o `ChallengeRef` ao abrir o chat/detalhes do
+  /// desafio (feature `challenges`).
+  final int currentDay;
+  final int totalDays;
+  final int myPosition;
+  final int myCheckins;
 }
 
 /// Placeholder: modelo local só para popular [DuniGroupCard].

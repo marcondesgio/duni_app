@@ -1,13 +1,8 @@
+import 'package:duni_app/core/design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-import '../../colors/duni_colors.dart';
-import '../../gradients/duni_gradients.dart';
-import '../../radius/duni_radius.dart';
-import '../../spacing/duni_spacing.dart';
-import '../../typography/duni_typography.dart';
-
-enum DuniButtonVariant { primary, text }
+enum DuniButtonVariant { primary, outline, text }
 
 enum DuniButtonState { enabled, disabled, loading }
 
@@ -60,7 +55,13 @@ class DuniButton extends StatelessWidget {
           : _flatBackgroundColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(DuniRadius.pill),
-        side: BorderSide.none,
+        side: variant == DuniButtonVariant.outline
+            ? BorderSide(
+                color: state == DuniButtonState.disabled
+                    ? DuniColors.purple50
+                    : DuniColors.purple200,
+              )
+            : BorderSide.none,
       ),
       child: InkWell(
         borderRadius: BorderRadius.circular(DuniRadius.pill),
@@ -76,7 +77,12 @@ class DuniButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(DuniRadius.pill),
                 )
               : null,
-          alignment: Alignment.center,
+          // Só centraliza quando `expand` já force o botão a ocupar a
+          // largura toda: `alignment` faz o Container tentar preencher as
+          // constraints recebidas mesmo com `expand: false`, o que aparece
+          // como um botão gigante em contextos com constraints soltos (ex.:
+          // floatingActionButton do Scaffold).
+          alignment: expand ? Alignment.center : null,
           child: content,
         ),
       ),
@@ -95,6 +101,7 @@ class DuniButton extends StatelessWidget {
     switch (variant) {
       case DuniButtonVariant.primary:
         return DuniColors.purple200;
+      case DuniButtonVariant.outline:
       case DuniButtonVariant.text:
         return Colors.transparent;
     }
@@ -104,6 +111,8 @@ class DuniButton extends StatelessWidget {
     switch (variant) {
       case DuniButtonVariant.primary:
         return Colors.white;
+      case DuniButtonVariant.outline:
+        return DuniColors.purple500;
       case DuniButtonVariant.text:
         return DuniColors.purpleGray100;
     }
