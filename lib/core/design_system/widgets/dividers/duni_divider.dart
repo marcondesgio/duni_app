@@ -8,6 +8,6 @@ class DuniDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Divider(color: DuniColors.gray200, thickness: 1, height: 1);
+    return Divider(color: DuniColors.gray200, thickness: 1, height: 1);
   }
 }

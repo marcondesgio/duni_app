@@ -132,7 +132,7 @@ class _PodiumSlot extends StatelessWidget {
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: DuniTypography.bodySmall.copyWith(
-              color: DuniColors.purple500,
+              color: DuniColors.textPrimary,
               fontWeight: FontWeight.w600,
             ),
           ),

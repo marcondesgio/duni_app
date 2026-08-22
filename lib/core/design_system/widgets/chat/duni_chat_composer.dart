@@ -62,7 +62,7 @@ class _DuniChatComposerState extends State<DuniChatComposer> {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: DuniSpacing.md),
                 decoration: BoxDecoration(
-                  color: DuniColors.white,
+                  color: DuniColors.surface,
                   borderRadius: BorderRadius.circular(DuniRadius.pill),
                   border: Border.all(color: DuniColors.gray100, width: 1),
                 ),
@@ -72,19 +72,19 @@ class _DuniChatComposerState extends State<DuniChatComposer> {
                   maxLines: 4,
                   textCapitalization: TextCapitalization.sentences,
                   style: DuniTypography.body.copyWith(
-                    color: DuniColors.purple500,
+                    color: DuniColors.textPrimary,
                   ),
                   decoration: InputDecoration(
                     hintText: widget.hintText,
                     hintStyle: DuniTypography.body.copyWith(
-                      color: DuniColors.purpleGray50,
+                      color: DuniColors.textTertiary,
                     ),
                     border: InputBorder.none,
                     isDense: true,
                     contentPadding: const EdgeInsets.symmetric(
                       vertical: DuniSpacing.sm,
                     ),
-                    fillColor: DuniColors.white,
+                    fillColor: DuniColors.surface,
                     enabledBorder: InputBorder.none,
                   ),
                   onSubmitted: (_) => _submit(),

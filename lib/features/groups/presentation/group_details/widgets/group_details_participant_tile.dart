@@ -29,7 +29,7 @@ class GroupDetailsParticipantTile extends StatelessWidget {
                     Text(
                       participant.name,
                       style: DuniTypography.body.copyWith(
-                        color: DuniColors.purple500,
+                        color: DuniColors.textPrimary,
                         fontWeight: FontWeight.w600,
                       ),
                     ),

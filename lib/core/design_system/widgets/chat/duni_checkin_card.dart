@@ -38,7 +38,7 @@ class DuniCheckinCard extends StatelessWidget {
                 child: Text(
                   '$userName fez check-in',
                   style: DuniTypography.label.copyWith(
-                    color: DuniColors.purple500,
+                    color: DuniColors.textPrimary,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -46,7 +46,7 @@ class DuniCheckinCard extends StatelessWidget {
               Text(
                 time,
                 style: DuniTypography.caption.copyWith(
-                  color: DuniColors.purple500.withAlpha(140),
+                  color: DuniColors.textPrimary.withAlpha(140),
                 ),
               ),
             ],
@@ -67,7 +67,7 @@ class DuniCheckinCard extends StatelessWidget {
                 child: Text(
                   'FOTO DO CHECK-IN',
                   style: DuniTypography.caption.copyWith(
-                    color: DuniColors.purple500.withAlpha(140),
+                    color: DuniColors.textPrimary.withAlpha(140),
                     letterSpacing: 0.5,
                   ),
                 ),
@@ -77,7 +77,9 @@ class DuniCheckinCard extends StatelessWidget {
           const SizedBox(height: DuniSpacing.xs),
           Text(
             description,
-            style: DuniTypography.body.copyWith(color: DuniColors.purple500),
+            style: DuniTypography.body.copyWith(
+              color: DuniColors.textPrimary,
+            ),
           ),
         ],
       ),

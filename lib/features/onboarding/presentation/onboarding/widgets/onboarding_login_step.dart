@@ -38,14 +38,14 @@ class _OnboardingLoginStepState extends State<OnboardingLoginStep> {
                 Text(
                   'Bem-vindo ao duni',
                   style: DuniTypography.heading2.copyWith(
-                    color: DuniColors.purple500,
+                    color: DuniColors.textPrimary,
                   ),
                 ),
                 const SizedBox(height: DuniSpacing.xxs),
                 Text(
                   'Use o e-mail corporativo que recebeu o convite.',
                   style: DuniTypography.bodySmall.copyWith(
-                    color: DuniColors.purpleGray100,
+                    color: DuniColors.textSecondary,
                   ),
                 ),
                 Padding(
@@ -72,7 +72,7 @@ class _OnboardingLoginStepState extends State<OnboardingLoginStep> {
           'Não recebeu convite? Fale com o RH da sua empresa.',
           textAlign: TextAlign.center,
           style: DuniTypography.bodySmall.copyWith(
-            color: DuniColors.purpleGray100,
+            color: DuniColors.textSecondary,
           ),
         ),
       ],

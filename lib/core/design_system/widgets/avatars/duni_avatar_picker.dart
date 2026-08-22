@@ -14,12 +14,14 @@ class DuniAvatarPicker extends StatelessWidget {
     this.imageUrl,
     this.initials,
     this.size = 140,
+    this.badgeIcon = Icons.camera_alt_outlined,
   });
 
   final VoidCallback onTap;
   final String? imageUrl;
   final String? initials;
   final double size;
+  final IconData badgeIcon;
 
   static const _ringWidth = 4.0;
 
@@ -66,7 +68,7 @@ class DuniAvatarPicker extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
-                  Icons.camera_alt_outlined,
+                  badgeIcon,
                   color: DuniColors.white,
                   size: badgeSize * 0.5,
                 ),

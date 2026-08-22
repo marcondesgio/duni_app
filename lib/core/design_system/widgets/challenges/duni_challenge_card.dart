@@ -114,7 +114,7 @@ class DuniChallengeCard extends StatelessWidget {
                   child: Text(
                     name,
                     style: DuniTypography.bodyLarge.copyWith(
-                      color: DuniColors.purple500,
+                      color: DuniColors.textPrimary,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -125,7 +125,7 @@ class DuniChallengeCard extends StatelessWidget {
                     Text(
                       periodLabel,
                       style: DuniTypography.bodySmall.copyWith(
-                        color: DuniColors.purple500.withAlpha(160),
+                        color: DuniColors.textPrimary.withAlpha(160),
                       ),
                     ),
                     if (checkinInfo != null) ...[
@@ -145,7 +145,7 @@ class DuniChallengeCard extends StatelessWidget {
                     Text(
                       '$participantCount participantes',
                       style: DuniTypography.caption.copyWith(
-                        color: DuniColors.purple500.withAlpha(160),
+                        color: DuniColors.textPrimary.withAlpha(160),
                       ),
                     ),
                   ],

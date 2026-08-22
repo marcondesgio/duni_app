@@ -36,20 +36,20 @@ class _OnboardingCodeStepState extends State<OnboardingCodeStep> {
                 Text(
                   'Digite seu código',
                   style: DuniTypography.heading2.copyWith(
-                    color: DuniColors.purple500,
+                    color: DuniColors.textPrimary,
                   ),
                 ),
                 const SizedBox(height: DuniSpacing.xxs),
                 Text(
                   'Enviamos 6 dígitos para',
                   style: DuniTypography.bodySmall.copyWith(
-                    color: DuniColors.purpleGray100,
+                    color: DuniColors.textSecondary,
                   ),
                 ),
                 Text(
                   state.email,
                   style: DuniTypography.label.copyWith(
-                    color: DuniColors.purple500,
+                    color: DuniColors.textPrimary,
                     fontWeight: FontWeight.w600,
                   ),
                 ),

@@ -1,11 +1,29 @@
 import 'package:flutter/widgets.dart';
 
+import '../theme/duni_theme_controller.dart';
+
 /// Paleta de cores oficial do DUNI Design System.
 ///
 /// Valores alinhados ao "Color System" (não às variações soltas do Figma —
 /// ver seção 7 da documentação, que resolve a divergência a favor destes
 /// tokens).
+///
+/// Modo claro/escuro: a maioria dos tokens abaixo é usada em mais de um
+/// papel (ex.: `purple500` ora como texto sobre uma superfície clara, ora
+/// como texto/ícone sobre o gradiente de marca; `white` ora como fundo de
+/// card, ora como texto sobre um fundo colorido) — inverter o token
+/// literalmente quebraria um dos dois papéis. Por isso os tokens de marca
+/// (purple200/300/400, teal, yellow, pink, notificações) e os usos "em cima
+/// do gradiente/badge" continuam fixos, e o papel que realmente precisa
+/// inverter no escuro (texto e fundo sobre superfície neutra) ganhou tokens
+/// semânticos próprios (`background`/`surface`/`textPrimary`/
+/// `textSecondary`/`textTertiary`, no fim da classe). Os tons de cinza
+/// (`gray50`..`gray300`) não têm esse conflito — só aparecem como
+/// fundo/borda em todo o app — então eles mesmos viraram getters
+/// sensíveis ao modo, sem precisar de um token semântico separado.
 abstract final class DuniColors {
+  static bool get _isDark => DuniThemeController.instance.isDark;
+
   ///Purple
   static const purple500 = Color(0xFF1B1240);
   static const purple400 = Color(0xFF3D2A7A);
@@ -18,11 +36,15 @@ abstract final class DuniColors {
   static const purpleGray100 = Color(0xFF6B6478);
   static const purpleGray50 = Color(0xFFA99FC4);
 
-  ///Gray
-  static const gray300 = Color(0xFFA8A29E);
-  static const gray200 = Color(0xFFE7E1D8);
-  static const gray100 = Color(0xFFF5F2EC);
-  static const gray50 = Color(0xFFFBFAF8);
+  ///Gray — sensíveis ao modo (só usados como fundo/borda, nunca como texto).
+  static Color get gray300 =>
+      _isDark ? const Color(0xFF6E67A0) : const Color(0xFFA8A29E);
+  static Color get gray200 =>
+      _isDark ? const Color(0xFF3A3568) : const Color(0xFFE7E1D8);
+  static Color get gray100 =>
+      _isDark ? const Color(0xFF2A2554) : const Color(0xFFF5F2EC);
+  static Color get gray50 =>
+      _isDark ? const Color(0xFF201B42) : const Color(0xFFFBFAF8);
 
   ///Notifications
   static const success = Color(0xFF3F6B64);
@@ -52,4 +74,17 @@ abstract final class DuniColors {
 
   ///Black
   static const black = Color(0xFF000000);
+
+  ///Semânticos (fundo/texto sobre superfície neutra — únicos papéis que
+  ///invertem entre claro/escuro; ver nota da classe).
+  static Color get background =>
+      _isDark ? const Color(0xFF14102B) : white;
+  static Color get surface =>
+      _isDark ? const Color(0xFF1F1B3D) : white;
+  static Color get textPrimary =>
+      _isDark ? const Color(0xFFF3F0FA) : purple500;
+  static Color get textSecondary =>
+      _isDark ? const Color(0xFFAFA6C9) : purpleGray100;
+  static Color get textTertiary =>
+      _isDark ? const Color(0xFF9089B3) : purpleGray50;
 }

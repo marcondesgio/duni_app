@@ -61,8 +61,8 @@ class _DuniDesignSystemShowcaseState extends State<DuniDesignSystemShowcase> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('DUNI Design System'),
-        backgroundColor: DuniColors.white,
-        foregroundColor: DuniColors.purple500,
+        backgroundColor: DuniColors.background,
+        foregroundColor: DuniColors.textPrimary,
         elevation: 0,
       ),
       body: ListView(
@@ -461,7 +461,7 @@ class _Section extends StatelessWidget {
           Text(
             title,
             style: DuniTypography.heading2.copyWith(
-              color: DuniColors.purple500,
+              color: DuniColors.textPrimary,
             ),
           ),
           const SizedBox(height: DuniSpacing.sm),

@@ -25,7 +25,7 @@ class HomeGroupsSection extends StatelessWidget {
               Text(
                 'Seus interesses',
                 style: DuniTypography.bodySmall.copyWith(
-                  color: DuniColors.purple500,
+                  color: DuniColors.textPrimary,
                   fontWeight: FontWeight.w600,
                 ),
               ),

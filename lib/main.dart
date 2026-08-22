@@ -21,12 +21,17 @@ class MyApp extends StatelessWidget {
       ),
     );
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'duni',
-      theme: DuniTheme.light,
-      initialRoute: AppRouter.initialRoute,
-      onGenerateRoute: AppRouter.onGenerateRoute,
+    return ListenableBuilder(
+      listenable: DuniThemeController.instance,
+      builder: (context, _) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'duni',
+        theme: DuniTheme.light,
+        darkTheme: DuniTheme.dark,
+        themeMode: DuniThemeController.instance.mode,
+        initialRoute: AppRouter.initialRoute,
+        onGenerateRoute: AppRouter.onGenerateRoute,
+      ),
     );
   }
 }

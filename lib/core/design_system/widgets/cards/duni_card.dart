@@ -10,14 +10,14 @@ class DuniCard extends StatelessWidget {
     required this.child,
     this.padding = const EdgeInsets.all(DuniSpacing.md),
     this.onTap,
-    this.backgroundColor = Colors.white,
+    this.backgroundColor,
     this.boxShadow = true,
   });
 
   final Widget child;
   final EdgeInsets padding;
   final VoidCallback? onTap;
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final bool boxShadow;
 
   @override
@@ -25,7 +25,7 @@ class DuniCard extends StatelessWidget {
     final content = Container(
       padding: padding,
       decoration: BoxDecoration(
-        color: backgroundColor,
+        color: backgroundColor ?? DuniColors.surface,
         borderRadius: BorderRadius.circular(DuniRadius.card),
         boxShadow: boxShadow ? DuniShadows.card : null,
         border: !boxShadow ? BoxBorder.all(color: DuniColors.gray100) : null,

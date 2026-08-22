@@ -32,7 +32,7 @@ class DuniRankingItem extends StatelessWidget {
             child: Text(
               '$position',
               style: DuniTypography.bodySmall.copyWith(
-                color: DuniColors.purple500.withAlpha(160),
+                color: DuniColors.textPrimary.withAlpha(160),
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -42,7 +42,9 @@ class DuniRankingItem extends StatelessWidget {
           Expanded(
             child: Text(
               name,
-              style: DuniTypography.body.copyWith(color: DuniColors.purple500),
+              style: DuniTypography.body.copyWith(
+                color: DuniColors.textPrimary,
+              ),
             ),
           ),
           Text(

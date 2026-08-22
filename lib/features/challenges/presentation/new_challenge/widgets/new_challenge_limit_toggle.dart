@@ -28,7 +28,7 @@ class NewChallengeLimitToggle extends StatelessWidget {
                 Text(
                   'Limitar participantes',
                   style: DuniTypography.bodyLarge.copyWith(
-                    color: DuniColors.purple500,
+                    color: DuniColors.textPrimary,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -36,7 +36,7 @@ class NewChallengeLimitToggle extends StatelessWidget {
                   Text(
                     'Máximo de $maxParticipants pessoas',
                     style: DuniTypography.bodySmall.copyWith(
-                      color: DuniColors.purpleGray100,
+                      color: DuniColors.textSecondary,
                     ),
                   ),
               ],

@@ -36,7 +36,8 @@ class _ChallengeChatViewState extends State<ChallengeChatView> {
   Future<void> _openCheckin() async {
     final result = await Navigator.of(context).push<CheckinResult>(
       MaterialPageRoute(
-        builder: (_) => CheckinView(challenge: widget.challenge),
+        builder: (_) =>
+            DuniThemeScope(child: CheckinView(challenge: widget.challenge)),
       ),
     );
     if (result != null) {
@@ -50,7 +51,7 @@ class _ChallengeChatViewState extends State<ChallengeChatView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: DuniColors.white,
+      backgroundColor: DuniColors.background,
       appBar: ChallengeChatAppBar(
         challenge: widget.challenge,
         onTap: _openDetails,
@@ -85,7 +86,7 @@ class _ChallengeChatViewState extends State<ChallengeChatView> {
                               child: Text(
                                 'DIA ${widget.challenge.currentDay} DE ${widget.challenge.totalDays}',
                                 style: DuniTypography.caption.copyWith(
-                                  color: DuniColors.purpleGray50,
+                                  color: DuniColors.textTertiary,
                                 ),
                               ),
                             ),

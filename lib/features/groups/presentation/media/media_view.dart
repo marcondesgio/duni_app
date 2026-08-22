@@ -26,7 +26,7 @@ class _MediaViewState extends State<MediaView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: DuniColors.white,
+      backgroundColor: DuniColors.background,
       body: SafeArea(
         child: ListenableBuilder(
           listenable: _viewModel,
@@ -46,9 +46,9 @@ class _MediaViewState extends State<MediaView> {
                   child: Row(
                     children: [
                       IconButton(
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.arrow_back,
-                          color: DuniColors.purple500,
+                          color: DuniColors.textPrimary,
                         ),
                         onPressed: () => Navigator.of(context).pop(),
                       ),
@@ -60,14 +60,14 @@ class _MediaViewState extends State<MediaView> {
                             Text(
                               'Mídias · ${widget.group.interestName}',
                               style: DuniTypography.bodyLarge.copyWith(
-                                color: DuniColors.purple500,
+                                color: DuniColors.textPrimary,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
                             Text(
                               '${state.mediaUrls.length} arquivos',
                               style: DuniTypography.caption.copyWith(
-                                color: DuniColors.purpleGray100,
+                                color: DuniColors.textSecondary,
                               ),
                             ),
                           ],
@@ -129,7 +129,7 @@ class _ModeToggleButton extends StatelessWidget {
     return IconButton(
       icon: Icon(
         icon,
-        color: selected ? DuniColors.purple500 : DuniColors.purpleGray50,
+        color: selected ? DuniColors.textPrimary : DuniColors.textTertiary,
       ),
       onPressed: onTap,
     );

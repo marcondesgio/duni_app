@@ -75,7 +75,7 @@ class DuniChatBubble extends StatelessWidget {
                   child: Text(
                     '$authorName · $time',
                     style: DuniTypography.caption.copyWith(
-                      color: DuniColors.purpleGray100,
+                      color: DuniColors.textSecondary,
                     ),
                   ),
                 ),
@@ -94,7 +94,7 @@ class DuniChatBubble extends StatelessWidget {
                         style: DuniTypography.body.copyWith(
                           color: isMine
                               ? DuniColors.white
-                              : DuniColors.purple500,
+                              : DuniColors.textPrimary,
                         ),
                       ),
               ),
@@ -151,7 +151,7 @@ class _Bubble extends StatelessWidget {
         vertical: DuniSpacing.xs,
       ),
       decoration: BoxDecoration(
-        color: tinted ? DuniColors.purple200 : Colors.white,
+        color: tinted ? DuniColors.purple200 : DuniColors.surface,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(
             !isMine ? DuniRadius.tiny : DuniRadius.bubble,

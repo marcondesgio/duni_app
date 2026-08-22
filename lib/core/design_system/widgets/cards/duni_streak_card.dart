@@ -31,7 +31,7 @@ class DuniStreakCard extends StatelessWidget {
               Text(
                 '$days ${days == 1 ? 'dia seguido' : 'dias seguidos'}',
                 style: DuniTypography.bodyLarge.copyWith(
-                  color: DuniColors.purple500,
+                  color: DuniColors.textPrimary,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -39,7 +39,7 @@ class DuniStreakCard extends StatelessWidget {
                 Text(
                   subtitle!,
                   style: DuniTypography.bodySmall.copyWith(
-                    color: DuniColors.purpleGray100,
+                    color: DuniColors.textSecondary,
                   ),
                 ),
             ],

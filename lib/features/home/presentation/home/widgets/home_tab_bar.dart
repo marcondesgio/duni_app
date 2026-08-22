@@ -71,8 +71,8 @@ class _Tab extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: DuniTypography.body.copyWith(
                   color: selected
-                      ? DuniColors.purple500
-                      : DuniColors.purpleGray100,
+                      ? DuniColors.textPrimary
+                      : DuniColors.textSecondary,
                   fontWeight: selected ? FontWeight.w700 : FontWeight.w400,
                 ),
               ),

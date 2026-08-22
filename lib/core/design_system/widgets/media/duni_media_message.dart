@@ -41,7 +41,7 @@ class DuniMediaMessage extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Icon(
                     Icons.image_not_supported_outlined,
-                    color: DuniColors.purple500.withAlpha(120),
+                    color: DuniColors.textPrimary.withAlpha(120),
                   ),
                 ),
               ),
@@ -52,7 +52,7 @@ class DuniMediaMessage extends StatelessWidget {
             Text(
               description!,
               style: DuniTypography.bodySmall.copyWith(
-                color: DuniColors.purple500,
+                color: DuniColors.textPrimary,
               ),
             ),
           ],
