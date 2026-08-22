@@ -64,8 +64,8 @@ class DuniImageDropzone extends StatelessWidget {
               Container(
                 width: 48,
                 height: 48,
-                decoration: const BoxDecoration(
-                  color: DuniColors.white,
+                decoration: BoxDecoration(
+                  color: DuniColors.surface,
                   shape: BoxShape.circle,
                 ),
                 alignment: Alignment.center,
@@ -91,7 +91,7 @@ class DuniImageDropzone extends StatelessWidget {
                   caption!,
                   textAlign: TextAlign.center,
                   style: DuniTypography.caption.copyWith(
-                    color: DuniColors.purpleGray50,
+                    color: DuniColors.textTertiary,
                   ),
                 ),
               ],

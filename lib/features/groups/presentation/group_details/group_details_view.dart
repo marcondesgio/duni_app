@@ -33,7 +33,7 @@ class _GroupDetailsViewState extends State<GroupDetailsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: DuniColors.white,
+      backgroundColor: DuniColors.background,
       body: Column(
         children: [
           GroupDetailsHeader(group: widget.group),
@@ -43,7 +43,7 @@ class _GroupDetailsViewState extends State<GroupDetailsView> {
                 top: Radius.circular(DuniRadius.large),
               ),
               child: ColoredBox(
-                color: DuniColors.white,
+                color: DuniColors.surface,
                 child: ListenableBuilder(
                   listenable: _viewModel,
                   builder: (context, _) {
@@ -77,14 +77,14 @@ class _GroupDetailsViewState extends State<GroupDetailsView> {
                               Text(
                                 'Participantes',
                                 style: DuniTypography.bodyLarge.copyWith(
-                                  color: DuniColors.purple500,
+                                  color: DuniColors.textPrimary,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
                               Text(
                                 '${state.participants.length}',
                                 style: DuniTypography.bodySmall.copyWith(
-                                  color: DuniColors.purpleGray100,
+                                  color: DuniColors.textSecondary,
                                 ),
                               ),
                             ],

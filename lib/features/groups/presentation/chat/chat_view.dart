@@ -34,7 +34,7 @@ class _ChatViewState extends State<ChatView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: DuniColors.white,
+      backgroundColor: DuniColors.background,
       appBar: ChatAppBar(group: widget.group, onTap: _openDetails),
       body: SafeArea(
         top: false,
@@ -68,7 +68,7 @@ class _ChatViewState extends State<ChatView> {
                               child: Text(
                                 'HOJE',
                                 style: DuniTypography.caption.copyWith(
-                                  color: DuniColors.purpleGray50,
+                                  color: DuniColors.textTertiary,
                                 ),
                               ),
                             ),

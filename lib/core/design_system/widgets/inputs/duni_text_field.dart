@@ -48,7 +48,9 @@ class DuniTextField extends StatelessWidget {
         if (label != null) ...[
           Text(
             label!,
-            style: DuniTypography.label.copyWith(color: DuniColors.purple500),
+            style: DuniTypography.label.copyWith(
+              color: DuniColors.textPrimary,
+            ),
           ),
           const SizedBox(height: DuniSpacing.xxs),
         ],
@@ -60,14 +62,16 @@ class DuniTextField extends StatelessWidget {
           onChanged: onChanged,
           minLines: minLines,
           maxLines: maxLines,
-          style: DuniTypography.body.copyWith(color: DuniColors.purple500),
+          style: DuniTypography.body.copyWith(color: DuniColors.textPrimary),
           decoration: InputDecoration(
             hintText: hintText,
             errorText: errorText,
             suffixIcon: suffixIcon,
             filled: true,
-            fillColor: enabled ? Colors.white : DuniColors.gray50,
-            hintStyle: DuniTypography.body.copyWith(color: DuniColors.gray200),
+            fillColor: enabled ? DuniColors.surface : DuniColors.gray50,
+            hintStyle: DuniTypography.body.copyWith(
+              color: DuniColors.textTertiary,
+            ),
             errorStyle: DuniTypography.bodySmall.copyWith(
               color: DuniColors.error,
             ),

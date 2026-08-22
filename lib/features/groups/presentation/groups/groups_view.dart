@@ -37,14 +37,16 @@ class _GroupsViewState extends State<GroupsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: DuniColors.white,
+      backgroundColor: DuniColors.background,
       appBar: AppBar(
-        backgroundColor: DuniColors.white,
+        backgroundColor: DuniColors.background,
         elevation: 0,
-        iconTheme: const IconThemeData(color: DuniColors.purple500),
+        iconTheme: IconThemeData(color: DuniColors.textPrimary),
         title: Text(
           'Grupos',
-          style: DuniTypography.heading3.copyWith(color: DuniColors.purple500),
+          style: DuniTypography.heading3.copyWith(
+            color: DuniColors.textPrimary,
+          ),
         ),
       ),
       body: SafeArea(

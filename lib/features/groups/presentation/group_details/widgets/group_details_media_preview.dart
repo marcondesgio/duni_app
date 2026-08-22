@@ -24,7 +24,7 @@ class GroupDetailsMediaPreview extends StatelessWidget {
             Text(
               'Mídias',
               style: DuniTypography.bodyLarge.copyWith(
-                color: DuniColors.purple500,
+                color: DuniColors.textPrimary,
                 fontWeight: FontWeight.w600,
               ),
             ),

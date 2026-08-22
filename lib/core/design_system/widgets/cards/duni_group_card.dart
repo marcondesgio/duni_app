@@ -42,7 +42,7 @@ class DuniGroupCard extends StatelessWidget {
           Text(
             interestName,
             style: DuniTypography.body.copyWith(
-              color: DuniColors.purple500,
+              color: DuniColors.textPrimary,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -50,7 +50,7 @@ class DuniGroupCard extends StatelessWidget {
           Text(
             '$participantCount participantes',
             style: DuniTypography.bodySmall.copyWith(
-              color: DuniColors.purpleGray100,
+              color: DuniColors.textSecondary,
             ),
           ),
         ],

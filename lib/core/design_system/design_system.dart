@@ -9,6 +9,7 @@ export 'radius/duni_radius.dart';
 export 'shadows/duni_shadows.dart';
 export 'gradients/duni_gradients.dart';
 export 'theme/duni_theme.dart';
+export 'theme/duni_theme_controller.dart';
 export 'responsive/duni_breakpoints.dart';
 export 'responsive/duni_responsive.dart';
 

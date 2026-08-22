@@ -71,14 +71,14 @@ class _Segment extends StatelessWidget {
         duration: const Duration(milliseconds: 150),
         padding: const EdgeInsets.symmetric(vertical: DuniSpacing.xs),
         decoration: BoxDecoration(
-          color: selected ? DuniColors.white : Colors.transparent,
+          color: selected ? DuniColors.surface : Colors.transparent,
           borderRadius: BorderRadius.circular(DuniRadius.small),
         ),
         alignment: Alignment.center,
         child: Text(
           label,
           style: DuniTypography.button.copyWith(
-            color: selected ? DuniColors.purple500 : DuniColors.purpleGray100,
+            color: selected ? DuniColors.textPrimary : DuniColors.textSecondary,
           ),
         ),
       ),

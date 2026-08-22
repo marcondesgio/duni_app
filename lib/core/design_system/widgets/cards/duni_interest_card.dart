@@ -29,7 +29,7 @@ class DuniInterestCard extends StatelessWidget {
       opacity: enabled ? 1 : 0.5,
       child: DuniCard(
         onTap: enabled ? onTap : null,
-        backgroundColor: selected ? DuniColors.purple50 : DuniColors.white,
+        backgroundColor: selected ? DuniColors.purple50 : DuniColors.surface,
         boxShadow: false,
         padding: const EdgeInsets.symmetric(
           vertical: DuniSpacing.md,
@@ -44,7 +44,7 @@ class DuniInterestCard extends StatelessWidget {
               label,
               textAlign: TextAlign.center,
               style: DuniTypography.bodySmall.copyWith(
-                color: DuniColors.purple500,
+                color: DuniColors.textPrimary,
                 fontWeight: FontWeight.w500,
               ),
             ),

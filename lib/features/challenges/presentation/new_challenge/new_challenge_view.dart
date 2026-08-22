@@ -35,18 +35,18 @@ class _NewChallengeViewState extends State<NewChallengeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: DuniColors.white,
+      backgroundColor: DuniColors.background,
       appBar: AppBar(
-        backgroundColor: DuniColors.white,
+        backgroundColor: DuniColors.background,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.close, color: DuniColors.purple500),
+          icon: Icon(Icons.close, color: DuniColors.textPrimary),
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(
           'Novo desafio',
           style: DuniTypography.bodyLarge.copyWith(
-            color: DuniColors.purple500,
+            color: DuniColors.textPrimary,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -198,7 +198,9 @@ class _FieldGroup extends StatelessWidget {
       children: [
         Text(
           label,
-          style: DuniTypography.label.copyWith(color: DuniColors.purple500),
+          style: DuniTypography.label.copyWith(
+            color: DuniColors.textPrimary,
+          ),
         ),
         child,
       ],

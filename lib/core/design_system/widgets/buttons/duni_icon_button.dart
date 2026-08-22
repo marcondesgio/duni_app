@@ -93,7 +93,7 @@ class DuniIconButton extends StatelessWidget {
       case DuniIconButtonVariant.primary:
         return DuniColors.white;
       case DuniIconButtonVariant.secundary:
-        return DuniColors.purple500;
+        return DuniColors.textPrimary;
     }
   }
 }

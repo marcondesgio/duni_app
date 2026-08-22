@@ -117,7 +117,7 @@ class _AddTile extends StatelessWidget {
         ),
         child: Icon(
           Icons.add_photo_alternate_outlined,
-          color: DuniColors.purple500.withAlpha(160),
+          color: DuniColors.textPrimary.withAlpha(160),
         ),
       ),
     );

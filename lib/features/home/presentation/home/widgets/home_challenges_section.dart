@@ -20,7 +20,7 @@ class HomeChallengesSection extends StatelessWidget {
               'Nenhum desafio em andamento ainda.',
               textAlign: TextAlign.center,
               style: DuniTypography.bodySmall.copyWith(
-                color: DuniColors.purpleGray50,
+                color: DuniColors.textTertiary,
               ),
             ),
           )

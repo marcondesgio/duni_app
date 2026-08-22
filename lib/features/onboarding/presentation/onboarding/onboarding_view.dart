@@ -45,18 +45,18 @@ class _OnboardingViewState extends State<OnboardingView> {
         return PopScope(
           canPop: showAppBar,
           child: Scaffold(
-            backgroundColor: DuniColors.white,
+            backgroundColor: DuniColors.background,
             appBar: showAppBar
                 ? AppBar(
                     scrolledUnderElevation: 0,
                     elevation: 0,
-                    backgroundColor: DuniColors.white,
+                    backgroundColor: DuniColors.background,
                     leading: step == OnboardingStep.login
                         ? null
                         : IconButton(
                             icon: Icon(Icons.arrow_back, size: DuniSpacing.lg),
                             onPressed: _viewModel.goBack,
-                            color: DuniColors.purple500,
+                            color: DuniColors.textPrimary,
                           ),
                   )
                 : null,

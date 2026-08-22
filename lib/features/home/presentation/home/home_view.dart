@@ -26,7 +26,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: DuniColors.white,
+      backgroundColor: DuniColors.background,
       body: SafeArea(
         child: ListenableBuilder(
           listenable: _viewModel,

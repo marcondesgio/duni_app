@@ -29,13 +29,15 @@ class OnboardingPhotoStep extends StatelessWidget {
         Text(
           'Adicione uma foto',
           textAlign: TextAlign.center,
-          style: DuniTypography.heading2.copyWith(color: DuniColors.purple500),
+          style: DuniTypography.heading2.copyWith(
+            color: DuniColors.textPrimary,
+          ),
         ),
         Text(
           'Ajude os colegas a te reconhecerem. Ou se preferir você pode continuar sem foto.',
           textAlign: TextAlign.center,
           style: DuniTypography.bodySmall.copyWith(
-            color: DuniColors.purpleGray100,
+            color: DuniColors.textSecondary,
           ),
         ),
         const SizedBox(height: DuniSpacing.lg),

@@ -25,12 +25,14 @@ class OnboardingInterestsStep extends StatelessWidget {
         const SizedBox(height: DuniSpacing.md),
         Text(
           'O que te move?',
-          style: DuniTypography.heading2.copyWith(color: DuniColors.purple500),
+          style: DuniTypography.heading2.copyWith(
+            color: DuniColors.textPrimary,
+          ),
         ),
         Text(
           'Escolha pelo menos 3 interesses.',
           style: DuniTypography.bodySmall.copyWith(
-            color: DuniColors.purpleGray100,
+            color: DuniColors.textSecondary,
           ),
         ),
         const SizedBox(height: DuniSpacing.sm),

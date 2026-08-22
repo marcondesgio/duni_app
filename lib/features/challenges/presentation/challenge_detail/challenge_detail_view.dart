@@ -37,7 +37,7 @@ class _ChallengeDetailViewState extends State<ChallengeDetailView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: DuniColors.white,
+      backgroundColor: DuniColors.background,
       body: ListenableBuilder(
         listenable: _viewModel,
         builder: (context, _) {
@@ -85,7 +85,7 @@ class _ChallengeDetailViewState extends State<ChallengeDetailView> {
                             top: Radius.circular(DuniRadius.large),
                           ),
                           child: ColoredBox(
-                            color: DuniColors.white,
+                            color: DuniColors.surface,
                             child: Padding(
                               padding: const EdgeInsets.all(DuniSpacing.lg),
                               child: Column(

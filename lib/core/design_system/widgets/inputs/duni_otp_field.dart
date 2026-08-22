@@ -170,7 +170,9 @@ class _DigitBoxState extends State<_DigitBox> {
           keyboardType: TextInputType.number,
           maxLength: 1,
           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-          style: DuniTypography.heading2.copyWith(color: DuniColors.purple500),
+          style: DuniTypography.heading2.copyWith(
+            color: DuniColors.textPrimary,
+          ),
           decoration: const InputDecoration(
             counterText: '',
             border: InputBorder.none,

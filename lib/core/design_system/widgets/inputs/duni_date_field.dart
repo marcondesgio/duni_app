@@ -35,7 +35,9 @@ class DuniDateField extends StatelessWidget {
       children: [
         Text(
           label,
-          style: DuniTypography.label.copyWith(color: DuniColors.purple500),
+          style: DuniTypography.label.copyWith(
+            color: DuniColors.textPrimary,
+          ),
         ),
         const SizedBox(height: DuniSpacing.xxs),
         InkWell(
@@ -47,7 +49,7 @@ class DuniDateField extends StatelessWidget {
               vertical: DuniSpacing.sm,
             ),
             decoration: BoxDecoration(
-              color: enabled ? Colors.white : DuniColors.gray50,
+              color: enabled ? DuniColors.surface : DuniColors.gray50,
               borderRadius: BorderRadius.circular(DuniRadius.medium),
               border: Border.all(color: DuniColors.gray200),
             ),
@@ -58,15 +60,15 @@ class DuniDateField extends StatelessWidget {
                     value != null ? _format(value!) : hintText,
                     style: DuniTypography.body.copyWith(
                       color: value != null
-                          ? DuniColors.purple500
-                          : DuniColors.purple500.withAlpha(120),
+                          ? DuniColors.textPrimary
+                          : DuniColors.textPrimary.withAlpha(120),
                     ),
                   ),
                 ),
                 Icon(
                   Icons.calendar_today_outlined,
                   size: 18,
-                  color: DuniColors.purple500,
+                  color: DuniColors.textPrimary,
                 ),
               ],
             ),

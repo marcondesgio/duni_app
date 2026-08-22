@@ -46,13 +46,13 @@ class _OnboardingNameStepState extends State<OnboardingNameStep> {
                 Text(
                   'Como você quer ser chamado?',
                   style: DuniTypography.heading2.copyWith(
-                    color: DuniColors.purple500,
+                    color: DuniColors.textPrimary,
                   ),
                 ),
                 Text(
                   'É esse nome que os colegas vão ver nos grupos.',
                   style: DuniTypography.bodySmall.copyWith(
-                    color: DuniColors.purpleGray100,
+                    color: DuniColors.textSecondary,
                   ),
                 ),
                 Padding(

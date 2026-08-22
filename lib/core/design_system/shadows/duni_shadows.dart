@@ -7,7 +7,10 @@ import 'package:flutter/widgets.dart';
 /// Os valores abaixo seguem uma elevação suave e devem ser confirmados com
 /// o Figma.
 abstract final class DuniShadows {
-  static final card = [
+  // Getters, não `static final`: um campo `final` calcularia a sombra uma
+  // única vez e a manteria congelada com a cor do modo claro/escuro que
+  // estava ativo no primeiro acesso, ignorando trocas de tema depois disso.
+  static List<BoxShadow> get card => [
     BoxShadow(
       color: DuniColors.gray200,
       blurRadius: DuniSpacing.xxs,
@@ -15,7 +18,7 @@ abstract final class DuniShadows {
     ),
   ];
 
-  static final raised = [
+  static List<BoxShadow> get raised => [
     BoxShadow(
       color: DuniColors.purple100,
       blurRadius: DuniSpacing.lg,

@@ -41,11 +41,11 @@ class DuniButton extends StatelessWidget {
       loading: _isLoading,
       textStyle: DuniTypography.button.copyWith(
         color: state == DuniButtonState.disabled
-            ? DuniColors.purpleGray50
+            ? DuniColors.textTertiary
             : _foregroundColor,
       ),
       foregroundColor: state == DuniButtonState.disabled
-          ? DuniColors.purpleGray50
+          ? DuniColors.textTertiary
           : _foregroundColor,
     );
 
@@ -112,9 +112,9 @@ class DuniButton extends StatelessWidget {
       case DuniButtonVariant.primary:
         return Colors.white;
       case DuniButtonVariant.outline:
-        return DuniColors.purple500;
+        return DuniColors.textPrimary;
       case DuniButtonVariant.text:
-        return DuniColors.purpleGray100;
+        return DuniColors.textSecondary;
     }
   }
 }
